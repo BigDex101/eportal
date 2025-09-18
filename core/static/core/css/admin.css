@@ -1,0 +1,143 @@
+/* ==== General Admin Header ==== */
+#header, .module caption, .breadcrumbs {
+    background-color: #00923f !important;
+    color: #fff !important;
+}
+#header a { color: #fff !important; }
+
+/* ==== Sidebar ==== */
+#nav-sidebar {
+    background-color: #11121a !important;
+}
+#nav-sidebar a {
+    color: #ffffff !important;
+}
+#nav-sidebar a:hover {
+    background-color: #00923f !important;
+}
+
+/* ==== Content Area ==== */
+#content {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* ==== Tables ==== */
+.change-list table { border: 1px solid #00923f !important; }
+.change-list thead th {
+    background: #00923f !important;
+    color: #fff !important;
+    text-align: center;
+}
+.change-list tbody td { text-align: center; }
+
+/* ==== Buttons ==== */
+input[type=submit], .button, .deletelink, .default {
+    background-color: #00923f !important;
+    color: #fff !important;
+    border-radius: 6px;
+    padding: 6px 12px;
+    border: none !important;
+}
+input[type=submit]:hover, .button:hover {
+    background-color: #11121a !important;
+    color: #fff !important;
+}
+
+/* ==== Login Page ==== */
+body.login {
+  background-color: #11121a !important;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Login box */
+body.login #content {
+  background: #fff !important;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* Login form fields */
+body.login #content input[type=text],
+body.login #content input[type=password] {
+  border: 1px solid #00923f !important;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Login button */
+body.login #content input[type=submit] {
+  background-color: #00923f !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+body.login #content input[type=submit]:hover {
+  background-color: #007a34 !important;
+}
+
+
+/* ==== Dashboard (after login) ==== */
+body, #container, #content {
+    background-color: #11121a !important;
+    color: #fff !important;
+}
+
+/* Sidebar / Navigation */
+#header, .breadcrumbs {
+    background-color: #00923f !important; /* green top bar */
+    color: #fff !important;
+}
+
+#header a, 
+#header a:visited, 
+#header a:hover {
+    color: #fff !important;
+}
+
+/* Module boxes */
+.module {
+    background: #1a1b26 !important;
+    border: 1px solid #00923f !important;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.module caption {
+    background: #00923f !important;
+    color: #fff !important;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Links */
+a {
+    color: #00923f !important;
+}
+
+a:hover {
+    color: #00b34f !important;
+}
+
+/* Table rows */
+.change-list table {
+    border: 1px solid #00923f !important;
+}
+
+.change-list thead th {
+    background: #00923f !important;
+    color: #fff !important;
+}
+.change-list tbody tr:nth-child(even) {
+    background: #1e1f29 !important;
+}
+.change-list tbody tr:nth-child(odd) {
+    background: #2a2b36 !important;
+}

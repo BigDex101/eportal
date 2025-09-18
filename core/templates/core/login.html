@@ -1,0 +1,46 @@
+{% extends "core/base_login.html" %}
+{% load static %}
+{% block title %}Login | St. Lawrence E-Result{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="" style="width: 500px;">
+
+    <!-- Logo and heading -->
+    <div class="login-box text-center mb-4">
+      <img src="{% static 'core/images/logo.png' %}" alt="School Logo" class="img-fluid" style="width: 165px; height: 165px;">
+      <h2 class="text-success " style="font: bold;">St. Lawrence School E-Result Platform</h2>
+      <h6>
+        Access your results instantly, securely, and effortlessly with our easy-to-use online E-Result portal – your academic progress, just a click away!
+      </h6>
+    </div>
+
+    <!-- Login Form -->
+    <h3 style="text-align: center; color: #da251d;">Check Your Result</h3>
+    <div class="login-form">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="reg_number" class="form-label text-white">Registration Number</label>
+          <input type="text" class="form-control bg-success text-white" name="reg_number" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label text-white">Password</label>
+          <input type="password" class="form-control bg-success text-white" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-light w-100">Login</button>
+      </form>
+
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

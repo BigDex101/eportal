@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}St. Lawrence E-Result{% endblock %}</title>
+  <link rel="icon" href="{% static 'core/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  {% if request.session.student_id %}
+  
+  <!-- Navbar -->
+ <!-- Hamburger for small screens -->
+  <button id="sidebar-toggle" class="btn-toggle">☰</button>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+     <button id="sidebar-close" class="btn-close">×</button>
+
+      <ul>
+        <li>
+          <img src="{% static 'core/images/logo.png' %}" alt="School Logo" class="img-fluid" style="width: 90px; height: 90px;">
+        </li>
+        <!-- Primary School -->
+        <li class="logo">
+          <a class="d-flex justify-content-between align-items-center text-decoration-none" data-bs-toggle="collapse" href="#primarySchoolMenu" role="button" aria-expanded="false" aria-controls="primarySchoolMenu">
+            Primary School
+            <span class="arrow">▼</span>
+          </a>
+          <ul class="collapse list-unstyled ms-3" id="primarySchoolMenu">
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-1</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY1' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY1' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY1' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-2</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY2' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY2' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY2' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-3</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY3' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY3' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY3' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-4</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY4' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY4' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY4' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-5</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY5' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY5' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY5' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>PRY-6</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY6' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY6' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'PRY6' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <!-- Other PRY classes... -->
+          </ul>
+        </li>
+
+        <!-- Secondary School -->
+        <li class="logo mt-2">
+          <a class="d-flex justify-content-between align-items-center text-decoration-none" data-bs-toggle="collapse" href="#secondarySchoolMenu" role="button" aria-expanded="false" aria-controls="secondarySchoolMenu">
+            Secondary School
+            <span class="arrow">▼</span>
+          </a>
+          <ul class="collapse list-unstyled ms-3" id="secondarySchoolMenu">
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>JSS-1</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-1' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-1' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-1' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>JSS-2</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-2' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-2' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-2' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>JSS-3</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-3' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-3' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'JSS-3' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>SSS-1</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-1' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-1' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-1' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>SSS-2</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-2' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-2' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-2' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>SSS-3</span>
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-3' '1st' %}">1st Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-3' '2nd' %}">2nd Term</a></li>
+                <li><a class="dropdown-item" href="{% url 'result' 'SSS-3' '3rd' %}">3rd Term</a></li>
+              </ul>
+            </li>
+            <!-- Other JSS/SSS classes... -->
+          </ul>
+        </li>
+      </ul>
+  </aside>
+  <div id="sidebar-overlay"></div>
+  {% endif %}
+
+  <!-- Page Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 St. Lawrence Schools</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'core/js/script.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

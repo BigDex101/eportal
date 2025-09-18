@@ -1,0 +1,104 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Dashboard | St. Lawrence E-Result{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+   <div class="dashbox">
+       <div class="box text-center mb-4">
+           <div>
+               <img src="{% static 'core/images/logo.png' %}" alt="School Logo" class="img-fluid" style="width: 150px; height: 150px;">
+               <h2 style="color: #00923f; font-size: 20px;">St. Lawrence School E-Result</h2>
+           </div>
+   
+           <div>
+               <h3>Welcome, {{ student.full_name }}</h3>
+               <p>Registration No: {{ student.reg_number }}</p>
+           </div>
+
+           <div>
+                <h5 style="text-decoration: underline;">Promotion Status</h5>
+                <img src="{% static 'core/images/PROMOTED.png' %}" alt="" class="img-fluid" style="width: 150px; height: 60px;">
+           </div>
+       </div>
+   </div>
+
+    <div class="container mt-4">
+
+        <!-- Heading -->
+        <h6 class="fw-bold text-decoration-underline">Resumption & Schedule of Fees</h6>
+        {% if term_info %}
+          <h5 class="fw-bold" style="color: #00923f;">
+            Next Term ({{ term_info.term_name }}) Resumption Date: 
+            {{ term_info.resumption_date|date:"l, jS F, Y" }}
+          </h5>
+        {% else %}
+          <h5 class="text-danger">No term information available</h5>
+        {% endif %}
+
+        <!-- Table -->
+        <div class="table-responsive mt-3">
+          <table class="table table-bordered table-striped text-center align-middle">
+            <thead class="table-light">
+              <tr>
+                <th colspan="2" class="text-center">SCHEDULE OF FEES FOR NEXT TERM</th>
+              </tr>
+              <tr>
+                <th>Class</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fee in fees %}
+              <tr>
+                <td>{{ fee.class_name }}</td>
+                <td>₦ {{ fee.amount|floatformat:2|intcomma }}</td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="2">No fees available</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      
+
+   <h5 class="text-center mb-3 mt-5">
+      School Fees and Boarding Fees should be paid into:
+   </h5>
+   <div class="dash-container mb-4">
+        <header>
+            <span class="logo">
+                <img src="{% static 'core/images/pogo.png' %}" alt="">
+                <h5 style="font-size: 16px; font-weight: 400; color: #fff;">Master Card</h5>
+        
+            </span>
+            <img src="{% static 'core/images/fcmb.jpg' %}" class="chip">
+        </header>
+        <div class="card-details">
+            <div class="name-number">
+                <h6 style="color: #fff; font-size: 10px; font-weight: 400;">Account Number</h6>
+                <h5 class="number" style="font-size: 16px; font-weight: 400; color: #fff;">1459882020</h5>
+                <h6 style="color: #fff; font-size: 10px; font-weight: 400;">Account Name</h6>
+                <h5 class="name" style="font-size: 16px; font-weight: 400; color: #fff;">St. Lawrence N/P School</h5>
+            </div>
+            <div class="valid-date">
+                <h6 style="color: #fff; font-size: 10px; font-weight: 400;">Bank Name</h6>
+                <h5 style="font-size: 16px; font-weight: 400; color: #fff;">FCMB</h5>
+            </div>
+        </div>
+     
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/js/dashboard.js' %}"></script>
+{% endblock %}

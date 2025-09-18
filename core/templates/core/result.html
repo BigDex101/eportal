@@ -1,0 +1,97 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Result | St. Lawrence E-Result{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered table-striped text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th colspan="6" class="text-center">
+            RESULTS FOR {{ student_class }} - {{ term }} TERM
+          </th>
+        </tr>
+        <tr>
+          <th>Subject</th>
+          <th>Test 1</th>
+          <th>Test 2</th>
+          <th>Test 3</th>
+          <th>Exam</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr>
+          <td>{{ result.subject }}</td>
+          <td>{{ result.test1 }}</td>
+          <td>{{ result.test2 }}</td>
+          <td>{{ result.test3 }}</td>
+          <td>{{ result.exam }}</td>
+          <td class="fw-bold text-success">{{ result.total_score }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-danger">No results available</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% if term == "3rd" %}
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped text-center align-middle">
+      <!-- Table Header -->
+      <thead class="table-light">
+        <tr>
+          <th colspan="7" class="text-center">
+            CUMULATIVE & AVERAGE SECTION ({{ term }} Term)
+          </th>
+        </tr>
+        <tr>
+          <th>Subjects / Courses</th>
+          <th>First Term Cumulative Score</th>
+          <th>Second Term Cumulative Score</th>
+          <th>Third Term Cumulative Score</th>
+          <th>Average Cumulative Score</th>
+          <th>Grade</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+
+      <!-- Table Body -->
+      <tbody>
+        {% for cum in cumulative_results %}
+        <tr>
+          <td>{{ cum.subject }}</td>
+          <td>{{ cum.first_term }}</td>
+          <td>{{ cum.second_term }}</td>
+          <td>{{ cum.third_term }}</td>
+          <td class="fw-bold text-success">{{ cum.average }}</td>
+          <td class="fw-bold">{{ cum.grade }}</td>
+          <td>{{ cum.remarks }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="7" class="text-danger">No cumulative results available</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endif %}
+
+
+
+
+{% endblock %}

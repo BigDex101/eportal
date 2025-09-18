@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="icon" type="image/x-icon" href="{% static 'core/images/favicon.ico' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'core/css/admin.css' %}">
+{% endblock %}
+
+{% block title %}St. Lawrence School Portal{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name">
+    <a href="{% url 'admin:index' %}" style="color:#00923f;">St. Lawrence School Portal</a>
+  </h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
